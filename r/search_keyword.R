@@ -119,7 +119,7 @@ save_posts_to_csv <- function(posts_df, search_term) {
 }
 
 # Termo para buscar
-search_term <- "Alexandre de Moraes"  # Altere para o termo que deseja buscar
+search_term <- "esquerdista"  # Altere para o termo que deseja buscar
 
 # Autenticar e obter o token
 token <- authenticate_bluesky(bluesky_username, bluesky_password)
