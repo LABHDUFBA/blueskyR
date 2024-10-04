@@ -1,19 +1,21 @@
-# Instalar pacotes R
-install.packages("reticulate")
-
 # Carregar o pacote reticulate para conectar com Python
 library(reticulate)
 # Carregar a biblioteca necessária para leitura e gravação de CSV
 library(readr)
+
+
+# Configurar o Hugging Face token de autenticação (substitua 'your_token' pelo seu token pessoal)
+huggingface_hub <- import("huggingface_hub")
+huggingface_hub$login("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")  # Insira seu token Hugging Face aqui
 
 # Importar bibliotecas necessárias do Python via reticulate
 transformers <- import("transformers")
 torch <- import("torch")
 
 # Carregar o modelo pré-treinado de classificação de toxicidade/violência
-model_name <- "unitary/toxic-bert"  # Modelo de classificação de toxicidade
-tokenizer <- transformers$AutoTokenizer$from_pretrained(model_name)
-model <- transformers$AutoModelForSequenceClassification$from_pretrained(model_name)
+model_name <- "meta-llama/Meta-Llama-Guard-2-8B"  # Modelo de classificação de toxicidade
+tokenizer <- transformers$AutoTokenizer$from_pretrained(model_name, use_auth_token = TRUE)
+model <- transformers$AutoModelForSequenceClassification$from_pretrained(model_name, use_auth_token = TRUE)
 
 # Função para carregar um arquivo CSV de respostas
 load_replies <- function(file_path) {
@@ -28,13 +30,23 @@ save_classified_replies <- function(replies_df, file_path) {
   cat("Resultados salvos em:", output_file, "\n")
 }
 
-# Função para classificar as respostas usando um modelo de detecção de violência (previamente configurado)
+# Função para classificar as respostas usando um modelo de detecção de violência
 classify_response <- function(text) {
-  # Verifica se o texto contém as palavras relacionadas a violência ou ódio
-  if (grepl("violência|agressão|ódio", text, ignore.case = TRUE)) {
-    return("violência/ódio detectado")  # Retorna a string se for detectada violência ou ódio
+  # Tokenizar o texto
+  inputs <- tokenizer$encode_plus(text, return_tensors = "pt")
+  
+  # Fazer a predição
+  outputs <- model$forward(inputs$input_ids)
+  logits <- outputs$logits
+  
+  # Classificar com base na saída do modelo
+  classification <- torch$argmax(logits, dim = 1)$item()
+  
+  # Mapear a classificação para as categorias
+  if (classification == 1) {
+    return("violência/ódio detectado")
   } else {
-    return("sem violência detectada")  # Retorna essa string se não for detectada violência
+    return("sem violência detectada")
   }
 }
 
@@ -65,8 +77,3 @@ process_matching_files <- function(directory_path) {
 
 # Chamar a função para processar todos os arquivos que seguem o padrão
 process_matching_files("data/")
-
-
-
-
-

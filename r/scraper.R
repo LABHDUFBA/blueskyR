@@ -151,7 +151,9 @@ save_data_to_csv <- function(profile_df, posts_df, username) {
   cat("Postagens salvas em", posts_file, "\n")
 }
 
-############################# final das funções #############################
+#############################################################################
+############################# FINAL DAS FUNÇÕES #############################
+############################################################################
 
 # Exemplo de uso: buscar perfil e posts e salvar como CSV
 
