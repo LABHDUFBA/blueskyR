@@ -112,12 +112,13 @@ convert_replies_to_df <- function(replies_data, original_post) {
   }
   
   replies_df <- do.call(rbind, lapply(replies_data, function(reply) {
-    # Verifica se as informações de reply existem antes de adicionar ao data frame
+    # Verifica se as informações de reply e da postagem original existem antes de adicionar ao data frame
     data.frame(
       reply_uri = ifelse(!is.null(reply$post$uri), reply$post$uri, NA),
       reply_cid = ifelse(!is.null(reply$post$cid), reply$post$cid, NA),
       original_post_uri = ifelse(!is.null(original_post$uri), original_post$uri, NA),
       original_post_text = ifelse(!is.null(original_post$record$text), original_post$record$text, NA),
+      original_post_author_handle = ifelse(!is.null(original_post$author$handle), original_post$author$handle, NA),  # Aqui incluímos o autor da postagem original
       reply_text = ifelse(!is.null(reply$post$record$text), reply$post$record$text, NA),
       reply_created_at = ifelse(!is.null(reply$post$record$createdAt), reply$post$record$createdAt, NA),
       reply_reply_count = ifelse(!is.null(reply$post$replyCount), reply$post$replyCount, NA),
@@ -132,6 +133,7 @@ convert_replies_to_df <- function(replies_data, original_post) {
   
   return(replies_df)
 }
+
 
 
 # Função para obter todas as respostas para as postagens
