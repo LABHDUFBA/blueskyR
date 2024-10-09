@@ -292,7 +292,7 @@ for (username in usernames) {
 ###############################################################################
 
 # Substitua pelo nome de usuário no Bluesky sem @
-username <- "alguem.bsky.social"  # Exemplo de nome de usuário
+username <- "creuzamar.bsky.social"  # Exemplo de nome de usuário
 
 # Obter dados do perfil e posts
 profile_data <- get_profile_data(username, token)
@@ -327,45 +327,43 @@ profile_urls <- c(
   "https://bsky.app/profile/celiatavares13.bsky.social",
   "https://bsky.app/profile/todandara.bsky.social",
   "https://bsky.app/profile/daniportelapsol.bsky.social",
-  "https://bsky.app/profile/dudasalabert.bsky.social"#,
-  # "https://bsky.app/profile/lenildaluna.bsky.social",
-  # "https://bsky.app/profile/mariadorosario.bsky.social",
-  # "https://bsky.app/profile/marinahelenabr.com.br",
-  # "https://bsky.app/profile/nataliabonavides.bsky.social",
-  # "https://bsky.app/profile/tabatasp.bsky.social",
-  # "https://bsky.app/profile/taliriapetrone.bsky.social",
-  # "https://bsky.app/profile/annemouraam.bsky.social",
-  # "https://bsky.app/profile/carlaayres.bsky.social",
-  # "https://bsky.app/profile/eucarolguedes.bsky.social",
-  # "https://bsky.app/profile/keitlimasp.bsky.social",
-  # "https://bsky.app/profile/lunazarattini.bsky.social",
-  # "https://bsky.app/profile/mariadoceurecife.bsky.social",
-  # "https://bsky.app/profile/martamerepresenta.bsky.social",
-  # "https://bsky.app/profile/profsoniameire.bsky.social",
-  # "https://bsky.app/profile/vanessafacundes.bsky.social",
-  # "https://bsky.app/profile/vivireispsol.bsky.social",
-  # "https://bsky.app/profile/iza-lourenca.bsky.social",
-  # "https://bsky.app/profile/bellagoncalves.com.br",
-  # "https://bsky.app/profile/fabyareis.bsky.social",
-  # "https://bsky.app/profile/martasuplicy.bsky.social",
-  # "https://bsky.app/profile/amandapaschoal.bsky.social",
-  # "https://bsky.app/profile/acarolinaiara.bsky.social",
-  # "https://bsky.app/profile/deboralimamtst.bsky.social",
-  # "https://bsky.app/profile/quilomboperiferico.bsky.social",
-  # "https://bsky.app/profile/luanapsol.bsky.social",
-  # #"https://bsky.app/profile/did:plc:5tu3m7c3etn6tv4zf7jhky5n",
-  # "https://bsky.app/profile/bfeministapsol.bsky.social",
-  # "https://bsky.app/profile/julianacarvalho13.bsky.social",
-  # "https://bsky.app/profile/monicacunhario.bsky.social",
-  # "https://bsky.app/profile/tainadepaularj.bsky.social",
-  # "https://bsky.app/profile/tatiroque.bsky.social",
-  # "https://bsky.app/profile/monicabenicio.bsky.social",
-  # "https://bsky.app/profile/cidafalabella.bsky.social",
-  # "https://bsky.app/profile/creuzamar.bsky.social",
-  # "https://bsky.app/profile/betabastos.bsky.social"
+  "https://bsky.app/profile/dudasalabert.bsky.social",
+  "https://bsky.app/profile/lenildaluna.bsky.social",
+  "https://bsky.app/profile/mariadorosario.bsky.social",
+  "https://bsky.app/profile/marinahelenabr.com.br",
+  "https://bsky.app/profile/nataliabonavides.bsky.social",
+  "https://bsky.app/profile/tabatasp.bsky.social",
+  "https://bsky.app/profile/taliriapetrone.bsky.social",
+  "https://bsky.app/profile/annemouraam.bsky.social",
+  "https://bsky.app/profile/carlaayres.bsky.social",
+  "https://bsky.app/profile/eucarolguedes.bsky.social",
+  "https://bsky.app/profile/keitlimasp.bsky.social",
+  "https://bsky.app/profile/lunazarattini.bsky.social",
+  "https://bsky.app/profile/mariadoceurecife.bsky.social",
+  "https://bsky.app/profile/martamerepresenta.bsky.social",
+  "https://bsky.app/profile/profsoniameire.bsky.social",
+  "https://bsky.app/profile/vanessafacundes.bsky.social",
+  "https://bsky.app/profile/vivireispsol.bsky.social",
+  "https://bsky.app/profile/iza-lourenca.bsky.social",
+  "https://bsky.app/profile/bellagoncalves.com.br",
+  "https://bsky.app/profile/fabyareis.bsky.social",
+  "https://bsky.app/profile/martasuplicy.bsky.social",
+  "https://bsky.app/profile/amandapaschoal.bsky.social",
+  "https://bsky.app/profile/acarolinaiara.bsky.social",
+  "https://bsky.app/profile/deboralimamtst.bsky.social",
+  "https://bsky.app/profile/quilomboperiferico.bsky.social",
+  "https://bsky.app/profile/luanapsol.bsky.social",
+  "https://bsky.app/profile/simonenascimento.bsky.social",
+  "https://bsky.app/profile/bfeministapsol.bsky.social",
+  "https://bsky.app/profile/julianacarvalho13.bsky.social",
+  "https://bsky.app/profile/monicacunhario.bsky.social",
+  "https://bsky.app/profile/tainadepaularj.bsky.social",
+  "https://bsky.app/profile/tatiroque.bsky.social",
+  "https://bsky.app/profile/monicabenicio.bsky.social",
+  "https://bsky.app/profile/cidafalabella.bsky.social",
+  "https://bsky.app/profile/creuzamar.bsky.social",
+  "https://bsky.app/profile/betabastos.bsky.social"
 )
-
-
 
 # Função para extrair o nome de usuário da URL
 extract_username <- function(url) {
@@ -377,28 +375,73 @@ extract_username <- function(url) {
 # Iterar sobre a lista de URLs e extrair os nomes de usuário
 usernames <- sapply(profile_urls, extract_username)
 
-# Loop para coletar dados de cada perfil
-for (username in usernames) {
-  cat("Coletando dados para:", username, "\n")
+# Função para verificar se os arquivos de dados já existem
+data_already_downloaded <- function(username) {
+  # Extrair a primeira parte do nome de usuário
+  simple_username <- strsplit(username, "\\.")[[1]][1]
   
-  # Obter dados do perfil e posts
-  profile_data <- get_profile_data(username, token)
-  posts_data <- get_all_posts(username, token)
+  # Obter a data atual no formato AAAA_mm_dd
+  current_date <- format(Sys.Date(), "%Y_%m_%d")
   
-  # Verifique se os dados do perfil e posts foram obtidos corretamente
-  if (!is.null(profile_data) && length(posts_data) > 0) {
-    cat("Dados obtidos com sucesso para:", username, "\n")
+  # Definir os caminhos dos arquivos
+  profile_file <- paste0("./data/", simple_username, "_profile_", current_date, ".csv")
+  posts_file <- paste0("./data/", simple_username, "_posts_", current_date, ".csv")
+  replies_file <- paste0("./data/", simple_username, "_replies_", current_date, ".csv")
+  
+  # Verificar se todos os arquivos já existem
+  return(file.exists(profile_file) && file.exists(posts_file) && file.exists(replies_file))
+}
+
+# Função para processar perfis em lotes e adicionar um tempo de espera entre os lotes
+process_profiles_in_batches <- function(usernames, batch_size, token) {
+  num_batches <- ceiling(length(usernames) / batch_size)
+  
+  for (batch in 1:num_batches) {
+    # Seleciona os perfis do lote atual
+    start_index <- ((batch - 1) * batch_size) + 1
+    end_index <- min(batch * batch_size, length(usernames))
+    batch_usernames <- usernames[start_index:end_index]
     
-    # Converter perfil e posts para data.frames
-    profile_df <- convert_profile_to_df(profile_data)
-    posts_df <- convert_posts_to_df(posts_data)
+    cat("Processando lote", batch, "de", num_batches, "\n")
     
-    # Obter respostas para os posts
-    replies_data <- get_all_replies_for_posts(posts_df, token)
+    # Loop para coletar dados de cada perfil no lote
+    for (username in batch_usernames) {
+      if (data_already_downloaded(username)) {
+        cat("Dados já baixados para:", username, "- pulando...\n")
+        next  # Pula para o próximo perfil se os dados já tiverem sido baixados
+      }
+      
+      cat("Coletando dados para:", username, "\n")
+      
+      # Obter dados do perfil e posts
+      profile_data <- get_profile_data(username, token)
+      posts_data <- get_all_posts(username, token)
+      
+      # Verifique se os dados do perfil e posts foram obtidos corretamente
+      if (!is.null(profile_data) && length(posts_data) > 0) {
+        cat("Dados obtidos com sucesso para:", username, "\n")
+        
+        # Converter perfil e posts para data.frames
+        profile_df <- convert_profile_to_df(profile_data)
+        posts_df <- convert_posts_to_df(posts_data)
+        
+        # Obter respostas para os posts
+        replies_data <- get_all_replies_for_posts(posts_df, token)
+        
+        # Salvar os dados em arquivos CSV
+        save_data_to_csv(profile_df, posts_df, replies_data, username)
+      } else {
+        cat("Erro ao obter perfil ou posts para o perfil:", username, "\n")
+      }
+    }
     
-    # Salvar os dados em arquivos CSV
-    save_data_to_csv(profile_df, posts_df, replies_data, username)
-  } else {
-    cat("Erro ao obter perfil ou posts para o perfil:", username, "\n")
+    # Aguarda 5 segundos entre os lotes
+    cat("Aguardando 5 segundos antes de processar o próximo lote...\n")
+    Sys.sleep(5)
   }
 }
+
+# Defina o tamanho do lote e inicie o processamento
+batch_size <- 10  # Defina o número de perfis por lote
+process_profiles_in_batches(usernames, batch_size, token)
+
